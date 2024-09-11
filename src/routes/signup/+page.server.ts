@@ -4,8 +4,8 @@ import { generateIdFromEntropySize } from 'lucia';
 import { hash } from '@node-rs/argon2';
 
 import type { Actions } from './$types';
-import { db } from '$lib/db';
-import { UserTable } from '$lib/db/schema';
+import { db } from '$lib/server/db';
+import { UserTable } from '$lib/server/schema';
 
 export const actions: Actions = {
 	default: async (event) => {

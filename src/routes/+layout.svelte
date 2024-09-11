@@ -4,7 +4,7 @@
 </script>
 
 <nav>
-	<a href="/sigup">Signup</a>
+	<a href="/signup">Signup</a>
 	<a href="/login">Login</a>
 	<form method="post" use:enhance>
 		<button>Sign out</button>

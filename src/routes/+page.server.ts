@@ -1,5 +1,5 @@
-import { db } from '$lib/db/index'; // Import the database connection
-import { ArticlesTable } from '$lib/db/schema';
+import { db } from '$lib/server/db'; // Import the database connection
+import { ArticlesTable } from '$lib/server/schema';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { lucia } from '$lib/server/auth';

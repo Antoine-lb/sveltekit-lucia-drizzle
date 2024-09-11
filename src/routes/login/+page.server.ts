@@ -3,7 +3,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import { verify } from '@node-rs/argon2';
 
 import type { Actions } from './$types';
-import { db } from '$lib/db';
+import { db } from '$lib/server/db';
 
 export const actions: Actions = {
 	default: async (event) => {

@@ -9,4 +9,4 @@ const db = drizzle(sqlite, {
 	schema
 });
 
-migrate(db, { migrationsFolder: 'src/lib/db/migrations' });
+migrate(db, { migrationsFolder: 'src/lib/server/generated' });
