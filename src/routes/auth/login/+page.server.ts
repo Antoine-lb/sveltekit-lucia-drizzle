@@ -18,12 +18,12 @@ export const actions: Actions = {
 			!/^[a-z0-9_-]+$/.test(username)
 		) {
 			return fail(400, {
-				message: 'Invalid username'
+				error: 'Invalid username'
 			});
 		}
 		if (typeof password !== 'string' || password.length < 3 || password.length > 255) {
 			return fail(400, {
-				message: 'Invalid password'
+				error: 'Invalid password'
 			});
 		}
 
@@ -42,7 +42,7 @@ export const actions: Actions = {
 			// it is crucial your implementation is protected against brute-force attacks with login throttling etc.
 			// If usernames are public, you may outright tell the user that the username is invalid.
 			return fail(400, {
-				message: 'Incorrect username or password'
+				error: 'Incorrect username or password'
 			});
 		}
 
@@ -54,7 +54,7 @@ export const actions: Actions = {
 		});
 		if (!validPassword) {
 			return fail(400, {
-				message: 'Incorrect username or password'
+				error: 'Incorrect username or password'
 			});
 		}
 

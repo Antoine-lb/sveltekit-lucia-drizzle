@@ -1,0 +1,26 @@
+<!-- routes/signup/+page.svelte -->
+<script lang="ts">
+	import { enhance } from '$app/forms';
+</script>
+
+<h1 class="font-bold text-xl">Create a new account</h1>
+<form method="post" use:enhance>
+	<label for="username">Username</label>
+	<br />
+	<input
+		class="bg-slate-200 p-1 rounded-lg border border-slate-300"
+		name="username"
+		id="username"
+	/><br />
+	<br />
+	<label for="password">Password</label>
+	<br />
+	<input
+		class="bg-slate-200 p-1 rounded-lg border border-slate-300"
+		type="password"
+		name="password"
+		id="password"
+	/><br />
+	<br />
+	<button class=" bg-cyan-900 text-white px-3 py-1 rounded-lg mt-3">Continue</button>
+</form>
