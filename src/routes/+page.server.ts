@@ -1,7 +1,8 @@
 import { db } from '$lib/db/index'; // Import the database connection
 import { ArticlesTable } from '$lib/db/schema';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
+import { lucia } from '$lib/server/auth';
 
 // Load all articles from the database to display on the page
 export const load: PageServerLoad = async () => {
@@ -24,5 +25,18 @@ export const actions: Actions = {
 		await db.insert(ArticlesTable).values({ title, content });
 
 		return { success: true }; // Indicate that the article was created successfully
+	},
+
+	logout: async (event) => {
+		if (!event.locals.session) {
+			return fail(401);
+		}
+		await lucia.invalidateSession(event.locals.session.id);
+		const sessionCookie = lucia.createBlankSessionCookie();
+		event.cookies.set(sessionCookie.name, sessionCookie.value, {
+			path: '.',
+			...sessionCookie.attributes
+		});
+		redirect(302, '/login');
 	}
 };
