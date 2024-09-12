@@ -1,9 +1,17 @@
 <!-- routes/signup/+page.svelte -->
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import type { ActionData } from './$types';
+
+	export let form: ActionData;
 </script>
 
 <h1 class="font-bold text-xl">Create a new account</h1>
+
+{#if form?.error}
+	<p class="text-red-500">{form?.error}</p>
+{/if}
+
 <form method="post" use:enhance>
 	<label for="username">Username</label>
 	<br />
@@ -21,6 +29,5 @@
 		name="password"
 		id="password"
 	/><br />
-	<br />
 	<button class=" bg-cyan-900 text-white px-3 py-1 rounded-lg mt-3">Continue</button>
 </form>

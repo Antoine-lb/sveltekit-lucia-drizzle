@@ -4,8 +4,6 @@
 	import type { ActionData } from './$types';
 
 	export let form: ActionData;
-
-	console.log('form', form);
 </script>
 
 <h1 class="font-bold text-xl">Sign in</h1>
